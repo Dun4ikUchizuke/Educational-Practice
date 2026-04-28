@@ -9,4 +9,4 @@
     - https://platform.uno/unofigma/
 
 - #Проект с дизайном:
-  - (ссылочка на фигму)
+  (https://www.figma.com/design/7nrReOEj0iimtrLryqjbUa/Untitled?node-id=0-1&t=7JhjyYfx5PZQZs5t-1)
