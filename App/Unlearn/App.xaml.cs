@@ -1,15 +1,16 @@
-﻿namespace Unlearn
-{
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
-        }
+﻿using Microsoft.Maui.Storage;
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
-        }
+namespace Unlearn;
+
+public partial class App : Application
+{
+    public App()
+    {
+        InitializeComponent();
+
+        var name = Preferences.Get("UserName", "");
+        MainPage = string.IsNullOrWhiteSpace(name)
+            ? new NavigationPage(new RegisterPage())
+            : new AppShell();
     }
 }
