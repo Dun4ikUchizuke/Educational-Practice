@@ -1,0 +1,148 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Unlearn.NewHabitModalPage"
+             BackgroundColor="#80000000"
+             Padding="0">
+
+    <Grid>
+        <!-- затемнение; тап по фону закрывает окно -->
+        <BoxView Color="#80000000">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackdropTapped"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <!-- карточка по центру -->
+        <Border HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="{OnIdiom Phone=310, Tablet=360, Desktop=420}"
+                Padding="22"
+                Stroke="#5A5A5A"
+                StrokeThickness="1"
+                BackgroundColor="#6B6B6B">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="46"/>
+            </Border.StrokeShape>
+
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                  RowSpacing="14">
+
+                <!-- круг + лотос -->
+                <Grid HeightRequest="220">
+                    <Border Stroke="#2C2C2C"
+                            StrokeThickness="12"
+                            BackgroundColor="Transparent"
+                            HeightRequest="200"
+                            WidthRequest="200"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                        <Border.StrokeShape>
+                            <Ellipse/>
+                        </Border.StrokeShape>
+                    </Border>
+
+                    <Image Source="habit_lotus.png"
+                           WidthRequest="140"
+                           HeightRequest="140"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                </Grid>
+
+                <Label Grid.Row="1"
+                       Text="Напишите вашу вредную&#10;привычку"
+                       FontSize="20"
+                       TextColor="#FFFFFF"
+                       Margin="4,0,0,0"/>
+
+                <!-- цель -->
+                <Border Grid.Row="2"
+                        Padding="16,10"
+                        BackgroundColor="#1D6E52"
+                        Opacity="0.75">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Ваша цель:"
+                               FontSize="12"
+                               TextColor="#EDEDED"
+                               Opacity="0.75"/>
+                        <Entry x:Name="GoalEntry"
+                               Placeholder="..."
+                               TextColor="#FFFFFF"
+                               PlaceholderColor="#D0D0D0"
+                               BackgroundColor="Transparent"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- старт -->
+                <Border Grid.Row="3"
+                        Padding="16,10"
+                        BackgroundColor="#1D6E52"
+                        Opacity="0.55">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Старт:"
+                               FontSize="12"
+                               TextColor="#EDEDED"
+                               Opacity="0.75"/>
+                        <DatePicker x:Name="StartDatePicker"
+                                    TextColor="#FFFFFF"
+                                    BackgroundColor="Transparent"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- выбор цвета (пока просто кружочки) -->
+                <HorizontalStackLayout Grid.Row="4" Spacing="14" HorizontalOptions="Center">
+                    <Border WidthRequest="44" HeightRequest="44" BackgroundColor="#1D6E52">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="22"/>
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border WidthRequest="44" HeightRequest="44" BackgroundColor="#B08A3A">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="22"/>
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border WidthRequest="44" HeightRequest="44" BackgroundColor="#2B90A8">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="22"/>
+                        </Border.StrokeShape>
+                    </Border>
+                    <Border WidthRequest="44" HeightRequest="44" BackgroundColor="#9B4C86">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="22"/>
+                        </Border.StrokeShape>
+                    </Border>
+                </HorizontalStackLayout>
+
+                <!-- поле снизу -->
+                <Border Grid.Row="5"
+                        Padding="16,10"
+                        BackgroundColor="#1D6E52"
+                        Opacity="0.35">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18"/>
+                    </Border.StrokeShape>
+                    <Entry x:Name="HabitEntry"
+                           Placeholder="Избавиться от привычки..."
+                           TextColor="#FFFFFF"
+                           PlaceholderColor="#D0D0D0"
+                           BackgroundColor="Transparent"/>
+                </Border>
+
+                <!-- кнопка закрыть -->
+                <Button Grid.Row="6"
+                        Text="Закрыть"
+                        TextColor="#FFFFFF"
+                        BackgroundColor="#00000000"
+                        HorizontalOptions="End"
+                        Clicked="OnCloseClicked"
+                        Margin="0,8,0,0"/>
+            </Grid>
+
+        </Border>
+    </Grid>
+</ContentPage>
