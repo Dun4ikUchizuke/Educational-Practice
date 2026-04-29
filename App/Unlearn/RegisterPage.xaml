@@ -1,0 +1,85 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Unlearn.RegisterPage"
+             BackgroundColor="#2B2B2B">
+
+    <Grid>
+        <Border HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="1320"
+                HeightRequest="736">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16"/>
+            </Border.StrokeShape>
+
+            <Border.Shadow>
+                <Shadow Brush="#000000"
+                        Offset="0,10"
+                        Radius="28"
+                        Opacity="0.35"/>
+            </Border.Shadow>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#00C677" Offset="0"/>
+                    <GradientStop Color="#136730" Offset="0.53"/>
+                    <GradientStop Color="#005B37" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid RowDefinitions="*,Auto">
+
+                <VerticalStackLayout Grid.Row="0"
+                                     Spacing="26"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     WidthRequest="520">
+
+                    <Label Text="Добро пожаловать!"
+                           FontSize="40"
+                           FontAttributes="Bold"
+                           TextColor="#F2F2F2"
+                           HorizontalTextAlignment="Center"/>
+
+                    <Grid HeightRequest="44" ColumnDefinitions="*,Auto">
+                        <Border Grid.ColumnSpan="2"
+                                BackgroundColor="#5B5B5B"
+                                Opacity="0.65">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
+                        </Border>
+
+                        <Entry x:Name="NameEntry"
+                               Grid.Column="0"
+                               Margin="14,0,0,0"
+                               Placeholder="Введите своё имя"
+                               TextColor="#EDEDED"
+                               PlaceholderColor="#CFCFCF"
+                               BackgroundColor="Transparent"/>
+
+                        <Button Grid.Column="1"
+                                Margin="8,0,10,0"
+                                WidthRequest="32"
+                                HeightRequest="32"
+                                BackgroundColor="Transparent"
+                                Text="→"
+                                TextColor="#00C08B"
+                                FontSize="18"
+                                Clicked="OnContinueClicked"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+
+                <Label Grid.Row="1"
+                       Text="UnlearnIt"
+                       FontSize="12"
+                       TextColor="#EDEDED"
+                       Opacity="0.85"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,14"/>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>
