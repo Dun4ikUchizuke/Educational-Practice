@@ -1,6 +1,4 @@
-﻿using Microsoft.Maui.Storage;
-
-namespace Unlearn;
+﻿namespace Unlearn;
 
 public partial class App : Application
 {
@@ -8,9 +6,10 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        var name = Preferences.Get("UserName", "");
-        MainPage = string.IsNullOrWhiteSpace(name)
-            ? new NavigationPage(new RegisterPage())
-            : new AppShell();
+        // СПОСОБ A (временно): сбрасываем сохранённое имя,
+        // чтобы при запуске всегда открывался экран регистрации.
+        Preferences.Remove("UserName");
+
+        MainPage = new NavigationPage(new RegisterPage());
     }
 }

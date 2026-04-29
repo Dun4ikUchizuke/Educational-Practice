@@ -20,8 +20,6 @@ public partial class RegisterPage : ContentPage
 
         Preferences.Set("UserName", name);
 
-        // Временный переход: просто откроем MainPage
-        // (правильно через Shell настроим чуть позже)
         await Navigation.PushAsync(new MainPage());
     }
 }
